@@ -14,11 +14,11 @@ public class AlgoritmosRecursivos {
         if (m == 0) return 1;
         else return n * PotenciaRecursiva(n, m - 1);
     }
-    int ImpresionDescendente (int n) {
-        if (n == 0) return 0;
-        else {
-            System.out.println(n);
-            return ImpresionDescendente(n - 1);
-        }
+    String ImpresionBinaria (int n) {
+        if (n == 0) {
+        return "0"; // Caso base, cuando el número es 0, la representación binaria es "0"
+    } else {
+        return ImpresionBinaria(n / 2) + n % 2; // Concatenamos el valor binario
+    }
     }
 }

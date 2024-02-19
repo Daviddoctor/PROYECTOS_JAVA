@@ -41,7 +41,7 @@ class Lamina extends JPanel {
         b1 = new JButton("Factorial");
         b2 = new JButton("Fibonacci");
         b3 = new JButton("Potencia");
-        b4 = new JButton("Numeros descendentes");
+        b4 = new JButton("Conversión Binario");
 
         b1.addActionListener(new GestionEventos());
         b2.addActionListener(new GestionEventos());
@@ -60,21 +60,21 @@ class Lamina extends JPanel {
             if(e.getSource() == b1) {
                 //JOptionPane es el metodo que me permite mostrar mensajes en una ventana
                 n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo")); //Convierte el valor que se introduce en un entero
-                JOptionPane.showInternalMessageDialog(null, "El factorial de " + n + "es" + objeto.factorial(n));
+                JOptionPane.showInternalMessageDialog(null, "El factorial de " + n + " es " + objeto.factorial(n));
             }
             if(e.getSource() == b2) {
                 n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
-                JOptionPane.showInternalMessageDialog(null, "El termino " + n + "de la sucesión es" + objeto.fibonacci(n));
+                JOptionPane.showInternalMessageDialog(null, "El termino " + n + " de la sucesión es " + objeto.fibonacci(n));
             }
             if(e.getSource() == b3) {
                 n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
                 m = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
                 //Resolver Potencia
-                JOptionPane.showInternalMessageDialog(null, "La potencia de " + n + "elevado a " + m + "es" + objeto.PotenciaRecursiva(n, m));
+                JOptionPane.showInternalMessageDialog(null, "La potencia de " + n + " elevado a " + m + " es " + objeto.PotenciaRecursiva(n, m));
             }
             if(e.getSource() == b4) {
                 n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
-                JOptionPane.showInternalMessageDialog(null, "La impresion descendente de " + n + "es" + objeto.ImpresionDescendente(n));
+                JOptionPane.showInternalMessageDialog(null, "La impresion Binaria de " + n + " es " + objeto.ImpresionBinaria(n));
             }
         }
     }
