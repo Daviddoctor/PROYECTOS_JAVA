@@ -1,5 +1,4 @@
-
-package recursividad;
+package manejo_arreglos;
 
 import javax.swing.JButton; //Clase que me permite realizar botones
 import javax.swing.JFrame; //Clase que me permite realizar ventanas
@@ -12,12 +11,12 @@ import java.awt.Dimension;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 
-public class Recursividad {
+public class Manejo_Arreglos {
 
     public static void main(String[] args) {
         Marco miMarco =  new Marco(); //Objeto que se crea en base a la clase
         miMarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        miMarco.setTitle("ALGORITMOS RECURSIVOS");
+        miMarco.setTitle("OPERACIONES CON ARREGLOS");
     }
     
 }
@@ -33,16 +32,16 @@ class Marco extends JFrame {
 
 class Lamina extends JPanel {
     JButton b1, b2, b3, b4, b5, b6, b7;
-    int n, m;
-    AlgoritmosRecursivos objeto;
+    int n, x;
+    Farreglos objeto;
     public Lamina() {
         setLayout(new AdminComponents());
-        objeto = new AlgoritmosRecursivos();
-        b1 = new JButton("Factorial");
-        b2 = new JButton("Fibonacci");
-        b3 = new JButton("Potencia");
-        b4 = new JButton("Conversión Binario");
-        b5 = new JButton("Conversión Hexadecimal");
+        objeto = new Farreglos();
+        b1 = new JButton("Mostrar arreglo");
+        b2 = new JButton("Mostrar arreglo Recur");
+        b3 = new JButton("Suma Elementos");
+        b4 = new JButton("Búscar elemento");
+        b5 = new JButton("Suma pares");
         b6 = new JButton("Suma de Digitos");
         b7 = new JButton("Producto de Digitos");
 
@@ -59,37 +58,35 @@ class Lamina extends JPanel {
         add(b3);
         add(b4);
         add(b5);
-        add(b6);
-        add(b7);
+        /*add(b6);
+        add(b7);*/
     }
 
     private class GestionEventos implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(e.getSource() == b1) {
-                //JOptionPane es el metodo que me permite mostrar mensajes en una ventana
-                n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo")); //Convierte el valor que se introduce en un entero
-                JOptionPane.showInternalMessageDialog(null, "El factorial de " + n + " es " + objeto.factorial(n));
+                objeto.crearArreglo();
+                JOptionPane.showMessageDialog(null, "El arreglo es: \n" + objeto.mostrarArreglo());
             }
             if(e.getSource() == b2) {
-                n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
-                JOptionPane.showInternalMessageDialog(null, "El termino " + n + " de la sucesión es " + objeto.fibonacci(n));
+                objeto.mostarArregloR(0);
+                JOptionPane.showMessageDialog(null, "El arreglo recursivo es: \n" + objeto.mostarArregloR(0));
             }
             if(e.getSource() == b3) {
-                n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
-                m = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
-                //Resolver Potencia
-                JOptionPane.showInternalMessageDialog(null, "La potencia de " + n + " elevado a " + m + " es " + objeto.PotenciaRecursiva(n, m));
+                objeto.crearArreglo();
+                JOptionPane.showInternalMessageDialog(null, "El arreglo es: " + objeto.mostrarArreglo() + "\n La suma de los elementos del arreglo es: " + objeto.sumaElementos(objeto.MAX - 1));  
             }
             if(e.getSource() == b4) {
-                n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
-                JOptionPane.showInternalMessageDialog(null, "La impresion Binaria de " + n + " es " + objeto.ImpresionBinaria(n));
+                x = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número a buscar"));
+                objeto.crearArreglo();
+                JOptionPane.showInternalMessageDialog(null, "El arreglo es: " + objeto.mostrarArreglo() + "\n El número " + x + " se encuentra en la posición " + objeto.buscarElemento(objeto.MAX - 1, x));
             }
             if(e.getSource() == b5) {
-                n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
-                JOptionPane.showInternalMessageDialog(null, "La impresion Hexadecimal de " + n + " es " + objeto.ImpresionHexadecimal(n));
+                objeto.crearArreglo();
+                JOptionPane.showInternalMessageDialog(null, "El arreglo es: " + objeto.mostrarArreglo() + "\n La suma de los elementos pares del arreglo es: " + objeto.sumarElementosPares(objeto.MAX - 1));
             }
-            if(e.getSource() == b6) {
+            /*if(e.getSource() == b6) {
                 n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
                 m = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
                 JOptionPane.showInternalMessageDialog(null, "La suma de los digitos de " + n + " y " + m + " es " + objeto.sumaDigitos(n, m));
@@ -98,7 +95,7 @@ class Lamina extends JPanel {
                 n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
                 m = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
                 JOptionPane.showInternalMessageDialog(null, "El producto de los digitos de " + n + " y " + m + " es " + objeto.productoDigitos(n, m));
-            }
+            }*/
         }
     }
 }
