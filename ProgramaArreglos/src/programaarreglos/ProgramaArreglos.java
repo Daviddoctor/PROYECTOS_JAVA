@@ -31,7 +31,7 @@ class Marco extends JFrame {
 }
 
 class Lamina extends JPanel {
-    JButton b1, b2, b3, b4, b5, b6, b7;
+    JButton b1, b2, b3, b4, b5, b6, b7, b8;
     int n, x;
     OperacionesArreglos objeto;
 
@@ -44,7 +44,8 @@ class Lamina extends JPanel {
         b4 = new JButton("Suma elementos pares");
         b5 = new JButton("Contar mayores que");
         b6 = new JButton("Suma de Menores");
-        /* b7 = new JButton("Producto de Digitos"); */
+        b7 = new JButton("Contar Menores que");
+        b8 = new JButton("Buscar Valor");
 
         b1.addActionListener(new GestionEventos());
         b2.addActionListener(new GestionEventos());
@@ -52,7 +53,8 @@ class Lamina extends JPanel {
         b4.addActionListener(new GestionEventos());
         b5.addActionListener(new GestionEventos());
         b6.addActionListener(new GestionEventos());
-        /* b7.addActionListener(new GestionEventos()); */
+        b7.addActionListener(new GestionEventos());
+        b8.addActionListener(new GestionEventos());
 
         add(b1);
         add(b2);
@@ -60,7 +62,8 @@ class Lamina extends JPanel {
         add(b4);
         add(b5);
         add(b6);
-        /* add(b7); */
+        add(b7);
+        add(b8);
     }
 
     private class GestionEventos implements ActionListener {
@@ -99,16 +102,18 @@ class Lamina extends JPanel {
                 JOptionPane.showInternalMessageDialog(null, "El arreglo es: " + objeto.mostrarArregloR(0)
                         + "La suma de los digitos menores de " + x + " es " + objeto.sumaMenores(objeto.MAX - 1, x));
             }
-            /*
-             * if(e.getSource() == b7) {
-             * n =
-             * Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
-             * m =
-             * Integer.parseInt(JOptionPane.showInputDialog("Ingrese un entero positivo"));
-             * JOptionPane.showInternalMessageDialog(null, "El producto de los digitos de "
-             * + n + " y " + m + " es " + objeto.productoDigitos(n, m));
-             * }
-             */
+            if(e.getSource() == b7) {
+                //Botón para contar numeros menores
+                x = Integer.parseInt(JOptionPane.showInputDialog("Ingrese valor a comparar"));
+                objeto.crearArreglo();
+                JOptionPane.showInternalMessageDialog(null, "El arreglo es: " + objeto.mostrarArregloR(0) + "\nLa cantidad de numeros menores que " + x + "\n son: " + objeto.contarMenores(objeto.MAX - 1, x));
+            }
+            if(e.getSource() == b8) {
+                //Botón para buscar un valor
+                x = Integer.parseInt(JOptionPane.showInputDialog("Ingrese valor a buscar"));
+                objeto.crearArreglo();
+                JOptionPane.showInternalMessageDialog(null, "El arreglo es: " + objeto.mostrarArregloR(0) + "\nEl valor " + x + " se encuentra en la posición " + objeto.buscar(objeto.MAX - 1, x));
+            }
         }
     }
 }

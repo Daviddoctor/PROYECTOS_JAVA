@@ -68,4 +68,22 @@ public class OperacionesArreglos {
         else
             return sumaMenores(n - 1, x);
     }
+    //Contar números menores
+    int contarMenores(int n, int x) {
+        if (n < 0)
+            return 0;
+        else if (a[n] < x)
+            return 1 + contarMenores(n - 1, x);
+        else
+            return contarMenores(n - 1, x);
+    }
+    //Búscar el valor de x dentro del array
+    int buscar(int n, int x) {
+        if (n < 0)
+            return -1;
+        else if (a[n] == x)
+            return n;
+        else
+            return buscar(n - 1, x);
+    }
 }
