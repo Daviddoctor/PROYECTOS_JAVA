@@ -40,7 +40,7 @@ class Lamina extends JPanel {
         setLayout(new AdminComponentes());
         objeto = new Lista();
         b1 = new JButton("Ingresar al inicio");
-        b2 = new JButton("Ingresar al final");
+        b2 = new JButton("Ingresar en orden");
         b3 = new JButton("Mostar Lista");
         b4 = new JButton("Suma de elementos");
         b5 = new JButton("Suma elementos pares");
@@ -54,7 +54,7 @@ class Lamina extends JPanel {
         b5.addActionListener(new FuncionBotones());
         b6.addActionListener(new FuncionBotones());
 
-        add(b1);
+        //add(b1);
         add(b2);
         add(b3);
         add(b4);
@@ -66,17 +66,17 @@ class Lamina extends JPanel {
     private class FuncionBotones implements ActionListener {// para heredar de clase abstracta se usa implements
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == b1) {
-                n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero"));
-                objeto.ingresarAlInicio(n);
+            if (e.getSource() == b2) {
+                x = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero"));
+                objeto.ingresarOrdenado(x);
                 JOptionPane.showMessageDialog(null, "Lista: \n" + objeto.mostrarLista());
-            } else if (e.getSource() == b2) {
+            } /*else if (e.getSource() == b2) {
                 n = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero"));
                 objeto.ingresarAlFinal(auxiliar);
                 JOptionPane.showMessageDialog(null, "Lista: \n" + objeto.mostrarLista());
             } else if (e.getSource() == b3) {
                 JOptionPane.showMessageDialog(null, "Lista: \n" + objeto.mostrarLista());
-            } else if (e.getSource() == b4) {
+            }*/ else if (e.getSource() == b4) {
                 JOptionPane.showMessageDialog(null,
                         "La suma de los elementos de la lista es: " + objeto.suma(objeto.lista));
             } else if (e.getSource() == b5) {
@@ -101,26 +101,22 @@ class Lamina extends JPanel {
 
         @Override
         public void addLayoutComponent(String name, Component comp) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from//
-                                                                           // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from//// nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
 
         @Override
         public void removeLayoutComponent(Component comp) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from//
-                                                                           // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from//// nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
 
         @Override
         public Dimension preferredLayoutSize(Container parent) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from//
-                                                                           // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from//// nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
 
         @Override
         public Dimension minimumLayoutSize(Container parent) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from//
-                                                                           // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from//// nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
 
         @Override

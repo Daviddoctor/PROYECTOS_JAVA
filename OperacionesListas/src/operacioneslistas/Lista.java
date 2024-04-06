@@ -30,6 +30,25 @@ public class Lista {
         }
     }
 
+    void ingresarOrdenado(int x) {
+        Nodo nuevo = new Nodo(x);
+        if (lista == null) {
+            lista = nuevo;
+        } else if (x < lista.info) {
+            nuevo.sig = lista;
+            lista = nuevo;
+        } else {
+            Nodo p = lista;
+            Nodo q = null;
+            while (p != null && p.info < x) {
+                q = p;
+                p = p.sig;      
+            }
+            q.sig = nuevo;
+            nuevo.sig = p;
+        }
+    }
+
     String mostrarLista() {
         String salida = "";
         Nodo temp = lista;
@@ -80,4 +99,6 @@ public class Lista {
         else
             return buscar(p.sig, x);
     }
+    //Se solicite un dato y diga cuantos datos son mayores en la lista al dato ingresado int contarMayores(Nodo p, x)
+    //Se sume los datos menores int sumarMenores(Nodo p, x)
 }
